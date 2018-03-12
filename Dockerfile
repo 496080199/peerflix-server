@@ -15,7 +15,8 @@ RUN chown app:app /home/app -R
 
 # run as user app from here on
 USER app
-RUN npm config set registry https://registry.npm.taobao.org&&\
+RUN git clone https://github.com/496080199/peerflix-server.git /home/app&&\
+    npm config set registry https://registry.npm.taobao.org&&\
     PHANTOMJS_CDNURL=https://npm.taobao.org/dist/phantomjs npm install && \
     bower install && \
     grunt build
