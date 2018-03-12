@@ -1,8 +1,9 @@
-FROM node:6-alpine
+FROM node:8-alpine
 
 # Update latest available packages,
 # add 'app' user, and make temp directory
-RUN apk --no-cache add ffmpeg git && \
+RUN echo "http://mirrors.aliyun.com/alpine/v3.7/main/" > /etc/apk/repositories&&\
+    apk --no-cache add ffmpeg git && \
     npm install -g grunt-cli bower && \
     adduser -D app && \
     mkdir /tmp/torrent-stream && \
@@ -14,7 +15,8 @@ RUN chown app:app /home/app -R
 
 # run as user app from here on
 USER app
-RUN npm install && \
+RUN npm config set registry https://registry.npm.taobao.org&&\
+    npm install && \
     bower install && \
     grunt build
 
