@@ -13,7 +13,7 @@
   "main": "./server/bin.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/asapach/peerflix-server.git"
+    "url": "https://github.com/496080199/peerflix-server.git"
   },
   "keywords": [
     "bittorrent",
