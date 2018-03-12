@@ -10,7 +10,6 @@ RUN echo "http://mirrors.aliyun.com/alpine/v3.7/main/" > /etc/apk/repositories&&
     chown app:app /tmp/torrent-stream
 
 WORKDIR /home/app
-COPY . .
 RUN chown app:app /home/app -R
 
 # run as user app from here on
