@@ -11,12 +11,10 @@ RUN echo "http://mirrors.aliyun.com/alpine/v3.7/main/" > /etc/apk/repositories&&
 
 WORKDIR /home/app
 RUN chown app:app /home/app -R
-
+COPY . .
 # run as user app from here on
 USER app
-RUN rm -rf /home/app/* &&\
-    git clone https://github.com/496080199/peerflix-server.git /home/app&&\
-    npm config set registry https://registry.npm.taobao.org&&\
+RUN npm config set registry https://registry.npm.taobao.org&&\
     PHANTOMJS_CDNURL=https://npm.taobao.org/dist/phantomjs npm install && \
     bower install && \
     grunt build
