@@ -16,8 +16,7 @@ COPY . .
 USER app
 RUN npm config set registry https://registry.npm.taobao.org&&\
     PHANTOMJS_CDNURL=https://npm.taobao.org/dist/phantomjs npm install && \
-    bower install && \
-    grunt build
+    bower install 
 
 VOLUME [ "/tmp/torrent-stream" ]
 EXPOSE 6881 9000
