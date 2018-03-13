@@ -10,8 +10,9 @@ RUN echo "http://mirrors.aliyun.com/alpine/v3.7/main/" > /etc/apk/repositories&&
     chown app:app /tmp/torrent-stream
 
 WORKDIR /home/app
-RUN chown app:app /home/app -R
 COPY . .
+RUN chown app:app /home/app -R
+
 # run as user app from here on
 USER app
 RUN npm config set registry https://registry.npm.taobao.org&&\
